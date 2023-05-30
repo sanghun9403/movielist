@@ -11,7 +11,6 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
   .then(res => res.json())
   .then(data => {
     let rows = data['results'];
-    console.log(rows)
 
     rows.forEach(list => {
       let title = list.title
@@ -21,7 +20,7 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       let id = list.id
 
       let temp_html = `<section class="card-list">
-                        <div class="movie-card" "id="${id}">
+                        <div class="movie-card" "id="${id}" onclick="showAlert(this)">
                           <img class="movie-image" src="https://image.tmdb.org/t/p/w500${path}" alt="...">
                           <h2>${title}</h2>
                           <p>${overview}</p>
@@ -31,8 +30,10 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
 
       document.querySelector('.card-list').insertAdjacentHTML('beforeend',temp_html);
     });
-
   })
+  function showAlert(movieId) {
+    alert('${id}');
+  }
 // 검색기능
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
