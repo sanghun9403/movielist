@@ -18,13 +18,13 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
       let path = list.poster_path
       let star = list.vote_average
       let id = list.id
-
+      
       let temp_html = `<section class="card-list">
-                        <div class="movie-card" "id="${id}" onclick="showAlert(this)">
+                        <div class="movie-card" id="${id}" onclick="showAlert(this)">
                           <img class="movie-image" src="https://image.tmdb.org/t/p/w500${path}" alt="...">
                           <h2>${title}</h2>
                           <p>${overview}</p>
-                          <p>Vote average ${star}</p>
+                          <p>Vote average ⭐${star}</p>
                         </div>
                        </div>`
 
@@ -32,7 +32,8 @@ fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', opti
     });
   })
   function showAlert(movieId) {
-    alert('${id}');
+    let ids = movieId.id
+    alert(`movie ID : ${ids}`)
   }
 // 검색기능
 const searchInput = document.getElementById('search-input');
