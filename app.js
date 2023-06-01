@@ -27,7 +27,7 @@ fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", opti
       let temp_html = `<div class="movie-card" id="${id}" onclick="showAlert(this)">
                           <img class="movie-image" src="https://image.tmdb.org/t/p/w500${path}" alt="...">
                           <h2>${title}</h2>
-                          <p>${overview}</p>
+                          <p id="desc">${overview}</p>
                           <p>Vote average ⭐${star}</p>
                         </div>`;
       document.querySelector(".card-list").insertAdjacentHTML("beforeend", temp_html);
@@ -59,7 +59,7 @@ function searchMovie(event) {
     let temp_html = `<div class="movie-card" id="${arr.id}" onclick="showAlert(this)">
                       <img class="movie-image" src="https://image.tmdb.org/t/p/w500${arr.poster_path}" alt="...">
                       <h2>${arr.title}</h2>
-                      <p>${arr.overview}</p>
+                      <p id="desc">${arr.overview}</p>
                       <p>Vote average ⭐${arr.vote_average}</p>
                     </div>`;
     // 검색키워드에 해당하는 영화들을 출력
